@@ -4,7 +4,7 @@
 // - annualInvestment: The amount invested every year
 // - expectedReturn: The expected (annual) rate of return
 // - duration: The investment duration (time frame)
-export function calculateInvestmentResults({
+export default function calculateInvestmentResults({
   initialInvestment,
   annualInvestment,
   expectedReturn,
