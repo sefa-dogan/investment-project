@@ -1,4 +1,5 @@
-export default function ResultList({ data }) {
+export default function ResultList({ investmentParams }) {
+  console.log(investmentParams)
   return (
     <table id="result">
       <thead>
@@ -11,13 +12,16 @@ export default function ResultList({ data }) {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>fg</td>
-          <td>sdfg</td>
-          <td>hf</td>
-        </tr>
+        {
+          investmentParams.map((investmentParam, i) => {
+            return <tr>
+              <td>{investmentParam.year}</td>
+              <td>{investmentParam.valueEndOfYear}</td>
+              <td>{investmentParam.interest}</td>
+              <td>{investmentParam.annualInvestment}</td>
+            </tr>
+          })
+        }
       </tbody>
     </table>
   );

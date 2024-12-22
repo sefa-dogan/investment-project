@@ -12,16 +12,19 @@ function App() {
     duration: 0,
   });
 
-  function handleOnChange() {
-    console.log("tetiklendi");
-    setInvestmentParams();
+  function handleOnChange(newInvestmentParams) {
+    setInvestmentParams(() => {
+      return {
+        ...newInvestmentParams
+      }
+    });
   }
 
   return (
     <div>
       <Header />
-      <UserForm onChange={handleOnChange} />
-      <ResultList data={investmentParams} />
+      <UserForm onParamsChange={handleOnChange} investmentParams={investmentParams} />
+      <ResultList investmentParams={calculateInvestmentResults(investmentParams)} />
     </div>
   );
 }
