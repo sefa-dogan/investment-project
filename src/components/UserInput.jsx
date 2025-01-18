@@ -1,10 +1,13 @@
-export default function UserInput({ label, name, onParamsChange, investmentParams }) {
+import { useContext } from "react";
+import { InvestmentContext } from "../store/investment-context.jsx";
+export default function UserInput({ label, name }) {
+  const { investment, handleChange } = useContext(InvestmentContext);
 
 
   function handleOnInput(newVal) {
 
-    newVal && onParamsChange({
-      ...investmentParams,
+    newVal && handleChange({
+      ...investment,
       [name]: parseInt(newVal)
     })
   }

@@ -3,6 +3,7 @@ import Header from "./components/Header.jsx";
 import UserForm from "./components/UserForm.jsx";
 import ResultList from "./components/ResultList.jsx";
 import calculateInvestmentResults from "./util/investment.js";
+import { InvestmentContext } from "./store/investment-context.jsx";
 
 function App() {
   const [investmentParams, setInvestmentParams] = useState({
@@ -19,13 +20,18 @@ function App() {
       }
     });
   }
-
+  const ctxValue = {
+    investment: investmentParams,
+    handleChange: handleOnChange
+  }
   return (
-    <div>
-      <Header />
-      <UserForm onParamsChange={handleOnChange} investmentParams={investmentParams} />
-      <ResultList investmentParams={calculateInvestmentResults(investmentParams)} />
-    </div>
+    <InvestmentContext.Provider value={ctxValue}>
+      <div>
+        <Header />
+        <UserForm />
+        <ResultList  />
+      </div>
+    </InvestmentContext.Provider >
   );
 }
 

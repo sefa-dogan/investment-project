@@ -1,5 +1,7 @@
 import UserInput from "./UserInput.jsx";
-export default function UserForm({ onParamsChange, investmentParams }) {
+
+export default function UserForm() {
+
 
 
   return (
@@ -8,27 +10,20 @@ export default function UserForm({ onParamsChange, investmentParams }) {
         <UserInput
           label={"INITIAL INVESTMENT"}
           name="initialInvestment"
-          onParamsChange={onParamsChange}
-          investmentParams={investmentParams}
         />
         <UserInput
           label={"ANNUAL INVESTMENT"}
           name="annualInvestment"
-          onParamsChange={onParamsChange}
-          investmentParams={investmentParams}
         />
       </div>
       <div>
         <UserInput
           label={"EXPECTED RETURN"}
           name="expectedReturn"
-          onParamsChange={onParamsChange}
-          investmentParams={investmentParams}
         />
         <UserInput label={"DURATION"}
-          name="duration"
-          onParamsChange={onParamsChange}
-          investmentParams={investmentParams} />
+          name="duration" />
+
       </div>
     </div>
   );

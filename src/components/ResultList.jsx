@@ -1,5 +1,11 @@
+import { useContext } from "react";
+import { InvestmentContext } from "../store/investment-context.jsx"
+import calculateInvestmentResults from "../util/investment.js";
 export default function ResultList({ investmentParams }) {
-  console.log(investmentParams)
+
+  const { investment } = useContext(InvestmentContext)
+
+  console.log(investment)
   return (
     <table id="result">
       <thead>
@@ -13,7 +19,7 @@ export default function ResultList({ investmentParams }) {
       </thead>
       <tbody>
         {
-          investmentParams.map((investmentParam, i) => {
+          calculateInvestmentResults(investment).map((investmentParam, i) => {
             return <tr>
               <td>{investmentParam.year}</td>
               <td>{investmentParam.valueEndOfYear}</td>
