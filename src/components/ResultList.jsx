@@ -20,7 +20,7 @@ export default function ResultList({ investmentParams }) {
       <tbody>
         {
           calculateInvestmentResults(investment).map((investmentParam, i) => {
-            return <tr>
+            return <tr key={i}>
               <td>{investmentParam.year}</td>
               <td>{investmentParam.valueEndOfYear}</td>
               <td>{investmentParam.interest}</td>
